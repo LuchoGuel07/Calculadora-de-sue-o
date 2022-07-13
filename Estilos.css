@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+    body {
+      margin: 0;
+      background: Lavender;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header, section {
+      max-width: 300px;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: #0c022f;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    #infoBox {
+      display: none;
+    }
+
+    button {
+      border-radius: 20px;
+      padding: 8px 16px;
+      margin: 8px 0 24px;
+      background: #0c022f;
+      border: none;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      background: PapayaWhip;
+      padding: 8px;
+    }
+
+    .visible {
+      display: block !important;
+    }
+    .title span {
+        --total: calc(var(--duration) + var(--delay));
+        position: relative;
+        display: block;
+        color: transparent;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+        animation: revealText 1s var(--total) forwards;
+
+    }
+    .title span::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0c022f;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: rollIn var(--duration) var(--delay) forwards, rollOut var(--duration) var(--total) forwards;
+    }
+    .title span::nth-child(2)::after{
+    border-top: 3px solid #0c022f;
+    }
+    @keyframes revealText{
+        to{
+            color: rgb(0, 0, 0);
+        }
+    }
+    @keyframes rollIn{
+        from{
+            transform: scaleX(0);
+        }
+        to{
+            transform: scaleX(1); 
+        }
+    }
+    @keyframes rollOut{
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(105%); 
+        }
+    }

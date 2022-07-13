@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de dormir</title>
+    <link rel="stylesheet" href="Estilos.css" type="text/css" media="all">
+</head>
+<body>
+    <div>
+      <header>
+          
+        <h1 class="title" style="--duration:1s">
+            <span  style="--delay: .5s">¡Acuéstate en la</span> 
+            <span style="--delay: .8s">hora adecuada!</span>
+        </h1>
+        <p>Para que tengas una buena noche de descanso, lo ideal es que duermas de 5 a 6 ciclos de aprox. 90 minutos.</p>
+      </header>
+      <section>
+        <h1 class="title" style="--duration:1s">
+            <span style="--delay: .5s">Hecho por: </span>
+            <span style="--delay: .8s">Luis Miguel</span>
+          </h1>
+        <h2>¿Cuáles son los horarios ideales para despertarte, si te acuestas en este momento?</h2>
+        <button id="getHours">Conocer horarios</button>
+        <div id="infoBox">
+          <p>Teniendo en cuenta que nos demoramos aprox. 14 minutos en dormirnos, si te acuestas ya, los mejores horarios para que te despiertes son:</p>
+          <ul id="hoursBox"></ul>
+          <p>¡Feliz noche! 😴</p>
+        </div>
+      </section>
+    </div>
+    <script>
+      const infoBox = document.getElementById('infoBox')
+      const hoursBox = document.getElementById('hoursBox')
+      const button = document.getElementById('getHours')
+      const currentDate = new Date()
+      const newDate = new Date()
+  
+      for (let i = 1; i <= 7; i++) {
+        newDate.setTime(currentDate.getTime() + ((90 + 14) * i * 60 * 1000))
+        const hourToSleep = `${newDate.getHours()}:${newDate.getMinutes()}`
+  
+        li = document.createElement('li')
+        li.innerText = hourToSleep
+        hoursBox.appendChild(li)
+      }
+  
+      button.addEventListener('click', () => infoBox.classList.add('visible'))
+    </script>
+  </body>
+  </html>
